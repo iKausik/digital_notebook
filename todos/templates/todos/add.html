@@ -1,0 +1,31 @@
+{% extends 'todos/layout.html' %}
+
+{% block content %}
+
+{% include 'todos/partials/_backbutton.html' %}
+
+<div style="text-align: left;">
+    
+        <h2><strong>Add Note</strong></h2>
+        <hr class="my-4">
+
+    <form method="POST" style="text-align: left;">
+        {% csrf_token %}
+
+            {{ form.title.label_tag }}
+            <br>
+            {{ form.title }}
+            <br>
+            <br>
+            {{ form.text.label_tag }}
+            <br>
+            {{ form.text }}
+            <br>
+            <br>
+            <button type="submit" class="btn btn-success">Save</button>
+
+    </form>
+    
+</div>
+
+{% endblock %}

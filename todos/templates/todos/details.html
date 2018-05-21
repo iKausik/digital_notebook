@@ -1,0 +1,13 @@
+{% extends 'todos/layout.html' %}
+
+{% block content %}
+
+{% include 'todos/partials/_backbutton.html' %}
+{% include 'todos/partials/_navbar.html' %}
+
+    <div style="text-align: left;">
+        <h3 style="font-weight: bold;">{{ todo_details.title }}</h3>
+        <div style="font-size: 18px;">{{ todo_details.text }}</div>
+    </div>
+
+{% endblock %}

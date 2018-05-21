@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "F:\\Python_Dev_Env\\django1_venv\\Scripts\\python.exe",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+}

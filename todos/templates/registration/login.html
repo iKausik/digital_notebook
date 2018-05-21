@@ -1,0 +1,56 @@
+{% extends 'todos/layout.html' %}
+
+{% block content %}
+
+{% include 'todos/partials/_backbutton.html' %}
+
+{% if not user.is_authenticated %}
+
+    <div style="text-align: left;">
+        <h2><strong>Log in</strong></h2>
+        <hr class="my-4">
+
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            {% if next %}
+                {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+                {% else %}
+                    <p>Please login to see this page.</p>
+                {% endif %}
+            {% endif %}
+
+
+            <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="form-group"> 
+                <td>{{ form.username.label_tag }}</td>
+                <br>
+                <td>{{ form.username }}</td>
+            </div>
+
+            <div class="form-group"> 
+                <td>{{ form.password.label_tag }}</td>
+                <br>
+                <td>{{ form.password }}</td>
+            </div>
+            
+                <input type="submit" value="Login" class="btn btn-primary"/>
+                <input type="hidden" name="next" value="{{ next }}"/>
+
+            </form>
+            <br>
+            <p><a href="{% url 'password_reset' %}">forgot password?</a></p>
+    </div>
+{% else %}
+
+    <div class="jumbotron">
+        <h5>You are already Logged in. Log out first to sign in as a different user.</h5>
+    </div>
+
+{% endif %}
+
+{% endblock %}

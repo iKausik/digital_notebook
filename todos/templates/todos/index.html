@@ -1,0 +1,47 @@
+{% extends 'todos/layout.html' %}
+
+{% block content %}
+
+<!-- Greeting Start -->
+{% if user.is_authenticated %}
+    <h5>Welcome <strong>{{ user.username }}</strong></h2>
+{% endif %}
+<!-- Greeting End -->
+
+<hr class="my-4">
+
+<!-- Add a Note Button Start -->
+<div class="add-new" style="margin-bottom: 30px;">
+        <a href="/todos/add"><button type="button" class="btn btn-success btn-lg" style="cursor: pointer;">Add a note</button></a>
+</div>
+<!-- Add a Note Button End -->
+
+
+        <ul style="list-style-type: none; display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; margin: 0; padding: 0;">
+
+            <!-- Loop for displaying all Todos -->
+            {% for todo in todos %}
+            
+                <a href="/todos/details/{{ todo.id }}" style="text-decoration: none; color: #000000;">
+
+                    <div class="card" style="width: 17rem; height: 17rem; overflow: hidden; margin: 20px; text-align: left; background-color: #ffff66; border: 1px solid #ffff66;">
+                        <div class="card-body">
+                            <li class="each-item">
+                                
+                                <!-- Displaying Title and Text (As per models.py) -->
+                                <div class="card-title" style="font-weight: bold; font-size: 20px;">{{ todo.title }}</div>
+                                
+                                <div class="card-text" style="font-weight: 600; font-size: 15px;">{{ todo.text }}</div>
+
+
+                            </li>
+                        </div>
+                    </div>
+
+                </a>
+
+            {% endfor %}
+
+        </ul>
+
+{% endblock %}

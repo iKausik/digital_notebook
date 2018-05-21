@@ -1,0 +1,1 @@
+web: gunicorn todolist_project3.wsgi

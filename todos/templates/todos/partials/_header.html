@@ -1,0 +1,11 @@
+<!-- Header Start -->
+<nav class="title">
+
+    <h3><a href="/">Digital NoteBook</a></h3>
+
+    {% if user.is_authenticated %}
+        <p id="logout_link"><a href="/accounts/logout">Logout</a></p>
+    {% endif %}
+
+</nav>
+<!-- Header End -->

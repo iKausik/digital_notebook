@@ -1,0 +1,19 @@
+<!-- Navbar Start -->
+<div class="flex-container" style="display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 30px;">
+   
+    <div class="menu new" style="margin: 5px;">
+        <a href="/todos/add"><button type="button" class="btn btn-success" style="cursor: pointer;">Add</button></a>
+    </div>
+   <br>
+    <div class="menu edit" style="margin: 5px;">
+        <a href="{% url 'edit' todo_details.id %}"><button type="button" class="btn btn-primary" style="cursor: pointer;">Edit</button></a>
+    </div>
+   <br>
+    <div class="menu delete" style="margin: 5px;">
+        <a href="{% url 'delete' todo_details.id %}"><button type="button" class="btn btn-danger" style="cursor: pointer;">Delete</button></a>
+    </div>
+   <br>
+            
+</div>
+<hr class="my-4">
+<!-- Navbar End -->

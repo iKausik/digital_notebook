@@ -1,0 +1,22 @@
+{% extends 'todos/layout.html' %}
+
+{% block content %}
+
+{% include 'todos/partials/_backbutton.html' %}
+
+<div style="text-align: left;">
+
+    <h2><strong>Delete Note</strong></h2>
+    <hr class="my-4">
+
+    <form method="POST" style="text-align: left; padding-top: 50px;">
+        {% csrf_token %}
+
+            <h4>Are you sure you want to remove {{ todo.title }} ?</h4>
+            <br>
+            <button type="submit" class="btn btn-danger">Confirm</button>
+    </form>
+
+</div>
+
+{% endblock %}

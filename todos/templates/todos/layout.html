@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'todos/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'todos/bootstrap-4/css/bootstrap.min.css' %}" />
+
+    <title>Digital NoteBook</title>
+</head>
+<body>
+
+        {% include 'todos/partials/_header.html' %} 
+    
+    <div class="container" style="padding-top: 20px; text-align: center;">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+        {% include 'todos/partials/_footer.html' %} 
+    
+    {% load static %}
+    <script src="{% static 'todos/scripts.js' %}"></script>
+    <script src="{% static 'todos/bootstrap-4/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>
