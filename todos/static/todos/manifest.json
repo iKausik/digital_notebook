@@ -4,6 +4,5 @@
 "display" : "standalone",
 "description" : "An Open Source Note Taking App Developed by Kausik Das",
 "background_color" : "#ffffff",
-"lang" : "en-US",
-"start_url" : "index.html"
+"lang" : "en-US"
 }
