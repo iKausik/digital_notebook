@@ -1,17 +1,15 @@
-/* Body Start */
+/* Content Start */
 .container{
     font-family: sans-serif;
 }
-/* Body End */
+/* Content End */
 
 
 /* Links Start */
 li a{
-    color: #ff0066;
     text-decoration: none;
 }
 li a:hover{
-    color: #ff0066;
     text-decoration: none;
 }
 /* Links End */
@@ -35,27 +33,6 @@ nav.title a{
     color: #000000;
 }
 /* _Header End */
-
-
-/* _Navbar Start */
-/*
-.flex-container{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: left;
-    flex-wrap: nowrap;
-    text-align: left;
-}
-.menu a button{
-    border: 1px solid black;
-    text-align: left;
-}*/
-/*.new{
-    text-align: left;
-    padding-left: 5px;
-}
-/* _Navbar End */
 
 
 /* Back Button Start */

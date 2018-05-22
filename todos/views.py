@@ -1,30 +1,26 @@
 from django.shortcuts import render, redirect
-# Importing user creation form for new user registration
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-# Importing Todo model
 from .models import Todo
 from .forms import TodoForm
 
 
-# View for index page
+# Index
 def index(request):
     if request.user.is_authenticated:
-        # This is filtering only current user's todos
         todos = Todo.objects.filter(user=request.user)[:]
 
         context = {
             'todos' : todos
         }
 
-        # Returning index.html and context in it
         return render(request, 'todos/index.html', context)
     else:
         return render(request, 'todos/home.html')
 
 
-# View for single todo
+# Details
 @login_required
 def details(request, id):
     single_todo = Todo.objects.get(id=id)
@@ -34,7 +30,7 @@ def details(request, id):
     return render(request, 'todos/details.html', context)
 
 
-# View for Add form
+# Add
 @login_required
 def add(request):
     form = TodoForm(request.POST or None)
@@ -49,7 +45,7 @@ def add(request):
         return render(request, 'todos/add.html', {'form' : form})
 
 
-# View for Edit form
+# Edit
 @login_required
 def edit(request, id):
     todo = Todo.objects.get(id=id)
@@ -65,7 +61,7 @@ def edit(request, id):
         return render(request, 'todos/add.html', {'form' : form, 'todo' : todo})
 
 
-# View for Delete todo
+# Delete
 @login_required
 def delete(request, id):
     todo = Todo.objects.get(id=id)
@@ -78,7 +74,7 @@ def delete(request, id):
         return render(request, 'todos/delete-confirm.html', {'todo' : todo})
         
 
-# View for Signup form
+# Signup
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)

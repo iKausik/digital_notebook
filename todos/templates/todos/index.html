@@ -17,9 +17,20 @@
 <!-- Add a Note Button End -->
 
 
+{% if todos|length == 0 %}
+    <div class="jumbotron" style="background-color: transparent; color: #b3b3b3;">
+        <h3>
+            <span style="font-size: 3em;">📖</span>
+            <br>
+            Your notebook is empty!
+        </h3>
+    </div>
+
+{% else %}
+
         <ul style="list-style-type: none; display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap; margin: 0; padding: 0;">
 
-            <!-- Loop for displaying all Todos -->
+            <!-- All Todos -->
             {% for todo in todos %}
             
                 <a href="/todos/details/{{ todo.id }}" style="text-decoration: none; color: #000000;">
@@ -28,7 +39,6 @@
                         <div class="card-body">
                             <li class="each-item">
                                 
-                                <!-- Displaying Title and Text (As per models.py) -->
                                 <div class="card-title" style="font-weight: bold; font-size: 20px;">{{ todo.title }}</div>
                                 
                                 <div class="card-text" style="font-weight: 600; font-size: 15px;">{{ todo.text }}</div>
@@ -43,5 +53,8 @@
             {% endfor %}
 
         </ul>
+
+{% endif %}
+
 
 {% endblock %}
