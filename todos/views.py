@@ -9,7 +9,7 @@ from .forms import TodoForm
 # Index
 def index(request):
     if request.user.is_authenticated:
-        todos = Todo.objects.filter(user=request.user)[:]
+        todos = Todo.objects.filter(user=request.user).order_by('-created_at')[:]
 
         context = {
             'todos' : todos
